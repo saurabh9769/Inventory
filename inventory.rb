@@ -7,16 +7,6 @@
 		'grape' => 30
 	}
 	
-#	def product_n
-#	puts "Enter a product name : "
-#	p_name = gets.chomp
-	#p_name = p
-	#p = items.value
-	
-	#def product_no()
-#	puts "Enter  the quantity to be added or removed : "
-#	p_no = gets.chomp.to_i
-	#p_no = n
 	
 def buy()
 	puts "Enter a product name : \n apple mango grape"
@@ -24,9 +14,9 @@ def buy()
 	if $items[p_name]
 		puts "Enter  the quantity to be added or removed : "
 		p_no = gets.chomp.to_i
-		msg
+		
 		$items[p_name] = $items[p_name] + p_no
-
+		msg(p_name,$items[p_name])
 	else	
 		puts"invalid input"
 	end
@@ -40,14 +30,14 @@ def sell()
 		p_no = gets.chomp.to_i
 
 		$items[p_name] = $items[p_name] - p_no
-		msg
+		msg(p_name,$items[p_name])
 	else	
 		puts"invalid input"
 	end
 end
 
-def msg()
-	puts"Your current inventory status is : items[#key #value] " 
+def msg(key,value)
+	puts"Your current inventory status is :  #{key}:#{value}"
 end
 	option = 0
 	while option != 'exit' 
