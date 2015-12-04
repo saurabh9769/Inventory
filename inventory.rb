@@ -24,15 +24,16 @@ class Inventory
 		puts "Enter a product name : \n apple orange grape"
 		p_name = gets.chomp
 		item = @@items.select{|i| i.name == p_name}.last
+		item.add()
 		if item
-			puts "Enter  the quantity to be added or removed : "
-			p_no = gets.chomp.to_i
+		# 	puts "Enter  the quantity to be added or removed : "
+		# 	p_no = gets.chomp.to_i
 		
-			item.quantity = item.quantity + p_no
-			#puts item.quantity
+		# 	item.quantity = item.quantity + p_no
+		#	puts item.quantity
 			msg
 		else	
-			puts"invalid input"
+		 	puts"invalid input"
 		end
 	end
 
@@ -40,18 +41,18 @@ class Inventory
 		puts "Enter a product name : \n apple orange grape"
 		p_name = gets.chomp
 		item = @@items.select{|i| i.name == p_name}.last
+		item.remove()
 		if item
-			puts "Enter  the quantity to be added or removed : "
-			p_no = gets.chomp.to_i
-			if p_no > item.quantity
-				puts "Insert proper quantity "
-			else
-				item.quantity = item.quantity - p_no
-				#puts item.quantity
-				msg
-			end
-		else	
-			puts"invalid input"
+		# 	puts "Enter  the quantity to be added or removed : "
+		# 	p_no = gets.chomp.to_i
+		# 	if p_no > item.quantity
+		# 		puts "Insert proper quantity "
+		# 	else
+		# 		item.quantity = item.quantity - p_no
+		#	puts item.quantity
+			msg
+	 	else	
+		 	puts"invalid input"
 		end
 	end
 
@@ -85,3 +86,5 @@ class Inventory
 end
 
 Inventory.new.start
+#d = Item.new(instance inventory)
+
