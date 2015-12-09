@@ -11,15 +11,20 @@ class Projects
 		@@project.push(c)
 	end
 
-	# def select_project()
-	# 	
-	# end
-
 	def add_task()
 		puts"Select project : \n Android \n Apple \n RoR \n exit"
 		p = gets.chomp
 		proj = @@project.select{|i| i.name == p}.last
 		proj.input_task
+
+	end
+
+	def change_project_status()
+		puts"Select project : \n Android \n Apple \n RoR \n exit"
+		p = gets.chomp
+		proj = @@project.select{|i| i.name == p}.last
+		proj.input_status
+
 	end
 	
 	def display()
@@ -27,11 +32,17 @@ class Projects
 		@@project.each do |j|
 			puts j.name
 
+		puts "The Status of the Project is :"
+					puts j.status
+					puts"\n\n"
 
 			puts "The tasks in this project are : "
 			j.tasks.each do |i|
 				puts i.task
 				puts"\n"
+
+				
+				
 			end
 		end
 		
@@ -41,7 +52,7 @@ class Projects
 	def start()
 	option = 0
 	while option != 'exit' 
-		puts "Select an operation to perform :\n 1.Add Tasks to Project \n 2.Display \n exit " 
+		puts "Select an operation to perform :\n 1.Add Tasks to Project \n 2.Display \n 3. Change Status \n exit " 
 		option = gets.chomp
 			
 		case option
@@ -51,6 +62,9 @@ class Projects
 			when "2" then
 				display
 				
+			when "3" then
+				change_project_status
+
 			when "exit"	then break
 			else
 				puts " Invalid input "
